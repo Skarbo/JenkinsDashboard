@@ -1,0 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+$break-small: 320px;
+
+@import "mixing/mixin";
+@import "template/dialog";
+@import "template/toast";
+@import "template/content/loading";
+@import "module/module";
+@import "module/jenkins";
+
+body, h1, h2, h3, h4, h5, h6, td, span, div, body {
+    font-family: 'Roboto', 'Arial';
+    margin: 0;
+    padding: 0;
+}
+
+template, container, content, wrapper {
+    display: block;
+}
+
+body, td {
+    font-size: 100%;
+    color: #333;
+}
+
+table {
+    border-spacing: 0;
+}
+
+#wrapper {
+}

@@ -1,0 +1,252 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+template[data-template="dialog"] {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out ;
+  -moz-transition: opacity 0.25s ease-in-out ;
+  -webkit-transition: opacity 0.25s ease-in-out ; }
+  template[data-template="dialog"].visible {
+    opacity: 1; }
+  template[data-template="dialog"] dialog {
+    display: table-cell;
+    vertical-align: middle; }
+    template[data-template="dialog"] dialog wrapper {
+      background-color: white;
+      margin: auto;
+      max-width: 25em;
+      text-align: center;
+      display: block;
+      width: 90%;
+      position: relative; }
+      template[data-template="dialog"] dialog wrapper header {
+        background-color: #EEEEEE;
+        border-bottom: 1px solid #BBBBBB;
+        color: #666666;
+        font-size: 0.7em;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0.5em; }
+      template[data-template="dialog"] dialog wrapper article {
+        padding: 0.5em;
+        text-align: left; }
+
+template[data-template="toast"] {
+  z-index: 2000;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out ;
+  -moz-transition: opacity 0.25s ease-in-out ;
+  -webkit-transition: opacity 0.25s ease-in-out ; }
+  template[data-template="toast"].visible {
+    opacity: 1; }
+  template[data-template="toast"] toast {
+    background-color: #EFEFEF;
+    color: #666666;
+    display: inline-block;
+    font-size: 0.8em;
+    margin: auto auto 1em;
+    padding: 0.4em;
+    -webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.75) ;
+    -moz-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.75) ;
+    box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.75) ; }
+
+content.loading {
+  text-align: center;
+  display: block; }
+
+*[data-transition] {
+  opacity: 0;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  transition: all 0.5s ease-in-out ;
+  -moz-transition: all 0.5s ease-in-out ;
+  -webkit-transition: all 0.5s ease-in-out ; }
+  *[data-transition][data-transition="horizontal_in"] {
+    left: 0%;
+    opacity: 1; }
+  *[data-transition][data-transition="horizontal_out"] {
+    left: -100%;
+    opacity: 0; }
+
+*[data-template="builds-jenkins"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0; }
+  *[data-template="builds-jenkins"] > table {
+    width: 100%;
+    height: 100%; }
+  *[data-template="builds-jenkins"] .head[data-wrapper] > td {
+    height: 1px;
+    padding: 0.5em 0; }
+  *[data-template="builds-jenkins"] .head[data-wrapper] table {
+    width: 100%; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] table td {
+      vertical-align: middle;
+      text-align: center; }
+      *[data-template="builds-jenkins"] .head[data-wrapper] table td > * {
+        vertical-align: middle;
+        display: inline-block; }
+  *[data-template="builds-jenkins"] .head[data-wrapper] .title[data-wrapper] {
+    padding: 0 0.5em; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .title[data-wrapper] .title {
+      color: #007BC0;
+      font-size: 3em;
+      font-weight: bold; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .title[data-wrapper] .subtitle {
+      color: #999;
+      font-size: 1.2em;
+      line-height: 1em; }
+  *[data-template="builds-jenkins"] .head[data-wrapper] .stat[data-wrapper] {
+    display: inline-block;
+    padding: 0 0.5em; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .stat[data-wrapper] .title {
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      color: #999; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .stat[data-wrapper] .stat {
+      color: #333;
+      font-size: 3em;
+      line-height: 1em; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .stat[data-wrapper] .substat {
+      color: #999;
+      font-size: 0.9em;
+      line-height: 0.8em;
+      opacity: 0.8; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .stat[data-wrapper][data-stat-type="success"] .stat {
+      color: #006600; }
+    *[data-template="builds-jenkins"] .head[data-wrapper] .stat[data-wrapper][data-stat-type="failure"] .stat {
+      color: #660000; }
+  *[data-template="builds-jenkins"] .body[data-wrapper] > td {
+    height: 99%; }
+  *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* Chartbuild builds */
+    /* /Chartbuild builds */
+    /* Culprits builds */
+    /* /Culprits builds */ }
+    *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='chartbuild-builds-jenkins'] {
+      height: 100%;
+      width: 100%; }
+      *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='chartbuild-builds-jenkins'] .chart[data-container] {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out ;
+        -moz-transition: opacity 0.25s ease-in-out ;
+        -webkit-transition: opacity 0.25s ease-in-out ; }
+        *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='chartbuild-builds-jenkins'] .chart[data-container].show {
+          opacity: 1; }
+    *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] {
+      height: 100%;
+      width: 100%; }
+      *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] > table {
+        width: 100%;
+        height: 100%; }
+        *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] > table td[data-wrapper='culprits'] {
+          width: 30%;
+          vertical-align: middle;
+          text-align: center; }
+        *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] > table td[data-wrapper='chart'] {
+          position: relative;
+          vertical-align: middle;
+          text-align: center; }
+      *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] {
+        height: 100%;
+        width: 100%; }
+        *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit {
+          font-size: 1.5vw; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .name {
+            padding: 0.2em;
+            font-size: 1.2em;
+            display: inline-block; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats_image > * {
+            display: inline-block;
+            vertical-align: middle; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .image img {
+            width: 10vw;
+            max-width: 80px;
+            max-height: 80px;
+            vertical-align: middle;
+            padding: 0.3em;
+            -webkit-border-radius: 0.2em;
+            -moz-border-radius: 0.2em;
+            -ms-border-radius: 0.2em;
+            -o-border-radius: 0.2em;
+            border-radius: 0.2em; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat > * {
+            padding: 0.2em; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat .type {
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.5em;
+            color: #999;
+            text-align: left; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat .stat {
+            color: #333;
+            font-size: 1em;
+            line-height: 1em;
+            text-align: left; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat .substat {
+            color: #999;
+            font-size: 0.7em;
+            line-height: 0.7em;
+            opacity: 0.8;
+            text-align: right; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat[data-stat-type='builds'] .substat:after {
+            content: "%"; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat[data-stat-type='success'] .stat {
+            color: #006600; }
+            *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat[data-stat-type='success'] .stat:after {
+              content: "%"; }
+          *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat[data-stat-type='failure'] .stat {
+            color: #660000; }
+            *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='culprits'] .culprit .stats .stat[data-stat-type='failure'] .stat:after {
+              content: "%"; }
+      *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='chart'] {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        transition: opacity 0.25s ease-in-out ;
+        -moz-transition: opacity 0.25s ease-in-out ;
+        -webkit-transition: opacity 0.25s ease-in-out ; }
+        *[data-template="builds-jenkins"] .body[data-wrapper] *[data-container='builds'] *[data-template='culpritsbuild-builds-jenkins'] *[data-container='chart'].show {
+          opacity: 1; }
+
+body, h1, h2, h3, h4, h5, h6, td, span, div, body {
+  font-family: 'Roboto', 'Arial';
+  margin: 0;
+  padding: 0; }
+
+template, container, content, wrapper {
+  display: block; }
+
+body, td {
+  font-size: 100%;
+  color: #333; }
+
+table {
+  border-spacing: 0; }

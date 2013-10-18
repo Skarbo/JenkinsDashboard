@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/lib/external/date.js"></script>
+    <script data-main="js/app" src="js/lib/external/require.2.1.8.js"></script>
+    <script type="text/javascript">
+        if ( !Array.prototype.filter ) {
+            Array.prototype.filter = function ( fun /*, thisp*/ ) {
+                'use strict';
+
+                if ( !this ) {
+                    throw new TypeError();
+                }
+
+                var objects = Object( this );
+                var len = objects.length >>> 0;
+                if ( typeof fun !== 'function' ) {
+                    throw new TypeError();
+                }
+
+                var res = [];
+                var thisp = arguments[1];
+                for ( var i in objects ) {
+                    if ( objects.hasOwnProperty( i ) ) {
+                        if ( fun.call( thisp, objects[i], i, objects ) ) {
+                            res.push( objects[i] );
+                        }
+                    }
+                }
+
+                return res;
+            };
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>BankID Dashboard</title>
+</head>
+<body>
+
+<!-- Loading content -->
+<script type="text/html" id="loading-content-template">
+    <content class="loading">
+        <img src="img/spinner.gif" alt="Loading data"/>
+    </content>
+</script>
+
+<!-- Loading dialog template -->
+<script type="text/html" id="dialog-template">
+    <dialog>
+        <wrapper>
+            <header data-bind="text: header"></header>
+            <article data-bind="template : { name : contentTemplate }"></article>
+        </wrapper>
+    </dialog>
+</script>
+
+<!-- Toast template -->
+<script type="text/html" id="toast-template">
+    <toast>
+        <article data-bind="text : toast"></article>
+    </toast>
+</script>
+
+<!-- MODULE -->
+
+<!-- ... CATEGORY -->
+
+<!-- Jenkins builds category -->
+<script type="text/html" id="builds-jenkins-template">
+    <table>
+        <tr data-wrapper class="head">
+            <td>
+                <table>
+                    <td>
+                        <div data-wrapper class="title">
+                            <div class="title" data-bind="text: title"></div>
+                            <div class="subtitle" data-bind="text: subtitle"></div>
+                        </div>
+                        <div data-wrapper class="stats" data-bind="foreach: stats">
+                            <div data-wrapper class="stat" data-stat-type=""
+                                 data-bind="attr: { 'data-stat-type': type }">
+                                <div class="title" data-bind="text: title"></div>
+                                <div class="stat" data-bind="text: stat"></div>
+                                <div class="substat" data-bind="html: substat"></div>
+                            </div>
+                        </div>
+                    </td>
+                </table>
+            </td>
+        </tr>
+        <tr data-wrapper class="body">
+            <td>
+                <div data-container="builds">
+                </div>
+            </td>
+        </tr>
+    </table>
+</script>
+
+<!-- ... ... SECTION -->
+
+<!-- Jenkins build builds section -->
+<script type="text/html" id="chartbuild-builds-jenkins-template">
+    <div data-container class="chart">
+    </div>
+</script>
+
+<!-- Jenkins culprits build section -->
+<script type="text/html" id="culpritsbuild-builds-jenkins-template">
+    <table>
+        <tr>
+            <td data-wrapper="culprits" class="repaint">
+                <table data-container="culprits" data-bind="foreach: culprits">
+                    <tr>
+                        <td>
+                            <div class="culprit repaint">
+                                <div class="name" data-bind="text: name"></div>
+                                <div class="stats_image">
+                                    <table class="stats" data-bind="foreach: stats">
+                                        <tr class="stat" data-stat-type="" data-bind="attr: {'data-stat-type': type}">
+                                            <td class="type" data-bind="text: type"></td>
+                                            <td class="stat" data-bind="text: stat"></td>
+                                            <td class="substat" data-bind="html: substat"></td>
+                                        </tr>
+                                    </table>
+                                    <div class="image">
+                                        <img class="repaint"
+                                             data-bind="attr: {src: image, alt: name, style: 'background-color: ' + color}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td data-wrapper="chart">
+                <div data-container="chart"></div>
+            </td>
+        </tr>
+    </table>
+</script>
+
+<!-- ... ... /SECTION -->
+
+<!-- ... /CATEGORY -->
+
+<!-- /MODULE -->
+
+<div id="wrapper">
+</div>
+
+</body>
+</html>

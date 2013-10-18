@@ -1,0 +1,247 @@
+*[data-template="builds-jenkins"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+
+    > table {
+        width: 100%;
+        height: 100%;
+    }
+
+    .head[data-wrapper] {
+
+        > td {
+            height: 1px;
+            padding: 0.5em 0;
+        }
+
+        table {
+            width: 100%;
+
+            td {
+                vertical-align: middle;
+                text-align: center;
+
+                > * {
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .title[data-wrapper] {
+            padding: 0 0.5em;
+
+            .title {
+                color: #007BC0;
+                font-size: 3em;
+                font-weight: bold;
+            }
+            .subtitle {
+                color: #999;
+                font-size: 1.2em;
+                line-height: 1em;
+            }
+        }
+
+        .stats[data-wrapper] {
+        }
+
+        .stat[data-wrapper] {
+            display: inline-block;
+            padding: 0 0.5em;
+
+            .title {
+                display: inline-block;
+                text-transform: uppercase;
+                font-size: 0.9em;
+                color: #999;
+            }
+
+            .stat {
+                color: #333;
+                font-size: 3em;
+                line-height: 1em;
+            }
+
+            .substat {
+                color: #999;
+                font-size: 0.9em;
+                line-height: 0.8em;
+                opacity: 0.8;
+            }
+
+            &[data-stat-type="success"] {
+
+                .stat {
+                    color: #006600;
+                }
+            }
+            &[data-stat-type="failure"] {
+
+                .stat {
+                    color: #660000;
+                }
+            }
+        }
+    }
+
+    .body[data-wrapper] {
+
+        > td {
+            height: 99%;
+        }
+
+        *[data-container='builds'] {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+
+            /* Chartbuild builds */
+
+            *[data-template='chartbuild-builds-jenkins'] {
+                height: 100%;
+                width: 100%;
+
+                .chart[data-container] {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0;
+                    @include transition(opacity, .25s, ease-in-out);
+
+                    &.show {
+                        opacity: 1;
+                    }
+                }
+
+            }
+
+            /* /Chartbuild builds */
+
+            /* Culprits builds */
+
+            *[data-template='culpritsbuild-builds-jenkins'] {
+                height: 100%;
+                width: 100%;
+
+                > table {
+                    width: 100%;
+                    height: 100%;
+
+                    td[data-wrapper='culprits'] {
+                        width: 30%;
+                        vertical-align: middle;
+                        text-align: center;
+                    }
+
+                    td[data-wrapper='chart'] {
+                        position: relative;
+                        vertical-align: middle;
+                        text-align: center;
+                    }
+                }
+
+                *[data-container='culprits'] {
+                    height: 100%;
+                    width: 100%;
+
+                    .culprit {
+                        font-size: 1.5vw;
+
+                        .name {
+                            padding: 0.2em;
+                            font-size: 1.2em;
+                            display: inline-block;
+                        }
+                        .stats_image {
+                            > * {
+                                display: inline-block;
+                                vertical-align: middle;
+                            }
+                        }
+                        .image {
+                            img {
+                                width: 10vw;
+                                max-width: 80px;
+                                max-height: 80px;
+                                vertical-align: middle;
+                                padding: 0.3em;
+                                @include border-radius(0.2em);
+                            }
+                        }
+                        .stats {
+                            .stat {
+                                > * {
+                                    padding: 0.2em;
+                                }
+                                .type {
+                                    display: inline-block;
+                                    text-transform: uppercase;
+                                    font-size: 0.5em;
+                                    color: #999;
+                                    text-align: left;
+                                }
+                                .stat {
+                                    color: #333;
+                                    font-size: 1em;
+                                    line-height: 1em;
+                                    text-align: left;
+                                }
+                                .substat {
+                                    color: #999;
+                                    font-size: 0.7em;
+                                    line-height: 0.7em;
+                                    opacity: 0.8;
+                                    text-align: right;
+                                }
+                                &[data-stat-type='builds'] .substat {
+                                    &:after {
+                                        content: "%";
+                                    }
+                                }
+                                &[data-stat-type='success'] .stat {
+                                    color: #006600;
+                                    &:after {
+                                        content: "%";
+                                    }
+                                }
+                                &[data-stat-type='failure'] .stat {
+                                    color: #660000;
+                                    &:after {
+                                        content: "%";
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+
+                *[data-container='chart'] {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    opacity: 0;
+                    top: 0;
+                    left: 0;
+                    @include transition(opacity, .25s, ease-in-out);
+
+                    &.show {
+                        opacity: 1;
+                    }
+                }
+
+            }
+
+            /* /Culprits builds */
+
+        }
+
+    }
+
+}
